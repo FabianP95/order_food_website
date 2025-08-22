@@ -12,7 +12,11 @@ header {
     align-items: center;
 }
 
-
+h2{
+    font-family: "Aguafina";
+    font-size: 35px;
+    margin-top: 0;
+}
 .section {
     display: flex;
     flex-direction: column;
@@ -26,8 +30,7 @@ header {
     height: 2px;
     background-color: #ff8000;
     opacity: 0.4 ;
-    margin-top: 2px;
-    margin-bottom: 2px;
+    margin-bottom: 20px;
 }
 
 .nav_bar{
@@ -47,4 +50,34 @@ header {
     display: flex;
     color: black;
 }
+
+.dish_overview {
+    display: flex;
+    justify-content: space-between;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #666363; 
+    padding-left: 1%;
+    margin-bottom: 20px;
+}
+
+.dish_overview_right_side{
+    position: relative;
+    width: 40%;
+    height: 125px;
+}
+
+.dish_name {
+    font-family: "Aguafina";
+    font-size: 24px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
+
+.dish_info {
+    margin: 0;
+}
+
+
+
 

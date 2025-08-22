@@ -33,24 +33,24 @@ header>img {
     position: relative;
     top: 0;
     left: 0;
+    margin-bottom: 45px;
 }
 
 #restaurant_image {
     height: 250px;
     flex: 1;
     object-fit: cover;
-    margin-bottom: 25px;
     position: relative;
     top: 0;
     left: 0;
 }
 
 #restaurant_logo {
-    height: 144px;
-    width: 144px;
+    height: 114px;
+    width: 114px;
     border-radius: 50%;
     position: absolute;
-    top: 85%;
+    top: 96%;
     left: 50%;
     translate: -50% -50%;
 }
@@ -58,4 +58,31 @@ header>img {
 .point {
     height: 34px;
     width: 34px;
+}
+
+.dish_image {
+    height: 125px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.dish_overview_btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #666363;
+}
+
+.icon {
+    height: 20px;
+    width: 20px;
 }

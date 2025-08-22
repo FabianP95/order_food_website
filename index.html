@@ -11,9 +11,11 @@
     <link rel="stylesheet" href="styles/standard.css">
     <script src="./script.js"></script>
     <script src="./scripts/template.js"></script>
+    <script src="./scripts/JSON.js"></script>
 </head>
+<!--git ignore/json structure/ template/ sticky cart/ -->
 
-<body>
+<body onload="renderAllDishes()">
     <header>
         <img src="./assets/Logo/Logo.png" alt="Brand_Logo">
     </header>
@@ -52,34 +54,14 @@
             </nav>
         </section>
         <div class="divider"></div>
-        <section id="salads">
-            <h2>Salats</h2>
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </section>
+        <h2>Salate</h2>
+        <div id="salads"></div>
         <div class="divider"></div>
-        <section id="pizza">
-            <h2>Pizza</h2>
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-
-        </section>
+        <h2>Pizza</h2>
+        <div id="pizza"></div>
         <div class="divider"></div>
-        <section id="side_dish">
-            <h2>Side Dishes</h2>
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </section>
+        <h2>Side Dishes</h2>
+        <div id="side_dish"></div>
     </main>
     <footer></footer>
 </body>
