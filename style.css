@@ -1,25 +1,50 @@
-body{
+body {
     font-family: "Roboto";
     max-width: 1920px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.text_color{
+    color: #7a7676;
 }
 
 header {
     height: 120px;
-    background-color: #ff8000 ;
+    background-color: #ff8000;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    
 }
 
-h2{
+.space{
+    padding-left: min(10px, 2%);
+}
+
+.content_wrap {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+main {
+    width: calc(100% - 300px);
+}
+
+h2 {
     font-family: "Aguafina";
     font-size: 35px;
     margin-top: 0;
+    padding-left: min(10px, 2%);
 }
+
 .section {
     display: flex;
     flex-direction: column;
+    
 }
 
 .color {
@@ -29,11 +54,11 @@ h2{
 .divider {
     height: 2px;
     background-color: #ff8000;
-    opacity: 0.4 ;
+    opacity: 0.4;
     margin-bottom: 20px;
 }
 
-.nav_bar{
+.nav_bar {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -42,13 +67,19 @@ h2{
     padding-bottom: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
-    padding-left: 10px;
+    padding-left: min(10px, 2%);
 }
 
-.nav_link{
+.nav_link {
     padding-left: 24px;
     display: flex;
-    color: black;
+    color: #7a7676;
+}
+
+.dishes {
+    padding-left: min(10px, 2%);
+    padding-right: min(10px, 2%);
+
 }
 
 .dish_overview {
@@ -56,12 +87,12 @@ h2{
     justify-content: space-between;
     border-style: solid;
     border-width: 1px;
-    border-color: #666363; 
+    border-color: rgb(102, 99, 99, .6);
     padding-left: 1%;
     margin-bottom: 20px;
 }
 
-.dish_overview_right_side{
+.dish_overview_right_side {
     position: relative;
     width: 40%;
     height: 125px;
@@ -79,5 +110,7 @@ h2{
 }
 
 
-
-
+footer {
+    height: 120px;
+    background-color: #ff8000;
+}

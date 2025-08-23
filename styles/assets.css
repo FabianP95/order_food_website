@@ -27,6 +27,20 @@ header>img {
     padding-left: 10px;
 }
 
+header>button {
+    margin-right: 10px;
+    border: none;
+    background-color:#ff8000;
+}
+
+header>button:hover {
+    cursor: pointer;
+}
+
+header>button>img{
+    height: 60px;
+    width: 60px;
+}
 
 #restaurant_img_container {
     display: flex;
@@ -86,3 +100,4 @@ header>img {
     height: 20px;
     width: 20px;
 }
+

@@ -9,60 +9,81 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/assets.css">
     <link rel="stylesheet" href="styles/standard.css">
-    <script src="./script.js"></script>
+    <link rel="stylesheet" href="styles/cart.css">
     <script src="./scripts/template.js"></script>
-    <script src="./scripts/JSON.js"></script>
+    <script src="./scripts/db.js"></script>
+    <script src="./script.js"></script>
+
 </head>
-<!--git ignore/json structure/ template/ sticky cart/ -->
+<!-- new template structe -> all indexes just indexDish -> no subtitles like indexSalat/  -->
 
 <body onload="renderAllDishes()">
     <header>
         <img src="./assets/Logo/Logo.png" alt="Brand_Logo">
+        <button onclick="toogleCart()">
+            <img src="./assets/icons/nav_icon/menu.svg" alt="show/hide cart">
+        </button>
     </header>
-    <aside>
-        <h2>Warenkorb</h2>
-        <section>
-            <h3></h3>
-            <div>
-                <button></button>
-                <p></p>
-                <button></button>
-                <p></p>
-                <button></button>
+    <div class="content_wrap">
+        <aside id="cart" class="cart_wrap">
+            <div class="cart">
+                <h2 class="cart_header">Warenkorb</h2>
+                <section class="cart_section">
+                    <h3>Pollo Pollo</h3>
+                    <div class="cart_order">
+                        <button class="cart_btn">
+                            <img class="cart_icon" src="./assets/icons/order_icons/minus.svg" alt="add dish to cart">
+                        </button>
+                        <p class="text_color">3x</p>
+                        <button class="cart_btn">
+                            <img class="cart_icon" src="./assets/icons/order_icons/plus.svg" alt="add dish to cart">
+                        </button>
+                        <p class="text_color">25,50€</p>
+                        <button class="cart_btn">
+                            <img class="cart_icon" src="./assets/icons/order_icons/bin.svg" alt="add dish to cart">
+                        </button>
+                    </div>
+                </section>
+                <section class="price_summary">
+                    <p class="text_color">Zwischensumme <span class="text_color">€€€</span></p>
+                    <p class="text_color">Lieferkosten <span class="text_color">€€€</span></p>
+                    <p>Gesamt <span>€€€</span></p>
+                </section>
             </div>
-        </section>
-        <section>
-            <p>Zwischensumme <span>€€€</span></p>
-            <p>Lieferkosten <span>€€€</span></p>
-            <p>Gesamt <span>€€€</span></p>
-        </section>
-    </aside>
-    <main>
-        <section class="section">
-            <div id="restaurant_img_container">
-                <img id="restaurant_image" src="./assets/img/main_images/restaurant_opener.jpg"
-                    alt="Italian Restaurant">
-                <img id="restaurant_logo" src="./assets/img/main_images/pizza_logo.jpg" alt="Restaurant Logo">
-            </div>
-            <h1>Phantastic Pizza Place de Placa Palacios</h1>
-            <p class="color">Bewertung (1,72 von 5,4 Sternen)</p>
-            <nav class="nav_bar">
-                <img class="point" src="./assets/icons/nav_icon/direction_right.svg" alt="points to dishes">
-                <a class="nav_link" href="#salads">Salate</a>
-                <a class="nav_link" href="#pizza">Pizza</a>
-                <a class="nav_link" href="#side_dish">Beilagen</a>
-            </nav>
-        </section>
-        <div class="divider"></div>
-        <h2>Salate</h2>
-        <div id="salads"></div>
-        <div class="divider"></div>
-        <h2>Pizza</h2>
-        <div id="pizza"></div>
-        <div class="divider"></div>
-        <h2>Side Dishes</h2>
-        <div id="side_dish"></div>
-    </main>
+        </aside>
+        <main id="main">
+            <section class="section">
+                <div id="restaurant_img_container">
+                    <img id="restaurant_image" src="./assets/img/main_images/restaurant_opener.jpg"
+                        alt="Italian Restaurant">
+                    <img id="restaurant_logo" src="./assets/img/main_images/pizza_logo.jpg" alt="Restaurant Logo">
+                </div>
+                <h1 class="space">Phantastic Pizza Place de Placa Palacios</h1>
+                <p class="color space">Bewertung (1,72 von 5,4 Sternen)</p>
+                <nav class="nav_bar">
+                    <img class="point" src="./assets/icons/nav_icon/direction_right.svg" alt="points to dishes">
+                    <a class="nav_link" href="#salads">Salate</a>
+                    <a class="nav_link" href="#pizza">Pizza</a>
+                    <a class="nav_link" href="#side_dish">Beilagen</a>
+                </nav>
+            </section>
+            <div class="divider"></div>
+            <section class="dishes">
+                <h2>Salate</h2>
+                <div id="salads"></div>
+            </section>
+            <div class="divider"></div>
+            <section class="dishes">
+                <h2>Pizza</h2>
+                <div id="pizza"></div>
+            </section>
+            <div class="divider"></div>
+            <section class="dishes">
+                <h2>Side Dishes</h2>
+                <div id="side_dish"></div>
+            </section>
+        </main>
+    </div>
     <footer></footer>
 </body>
 
