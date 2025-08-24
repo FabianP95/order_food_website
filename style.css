@@ -7,7 +7,7 @@ body {
     margin-bottom: 0;
 }
 
-.text_color{
+.text_color {
     color: #7a7676;
 }
 
@@ -18,10 +18,11 @@ header {
     align-items: center;
     justify-content: space-between;
     align-content: center;
-    
 }
 
-.space{
+
+
+.space {
     padding-left: min(10px, 2%);
 }
 
@@ -44,7 +45,6 @@ h2 {
 .section {
     display: flex;
     flex-direction: column;
-    
 }
 
 .color {
@@ -109,8 +109,25 @@ h2 {
     margin: 0;
 }
 
-
 footer {
     height: 120px;
     background-color: #ff8000;
+}
+
+@media (max-width:800px) {
+
+    #main {
+        width: 100%;
+    }
+
+    footer {
+        display: none;
+    }
+}
+
+@media (max-width:500px) {
+
+    h1{
+        text-align: center;
+    }
 }

@@ -10,40 +10,27 @@
     <link rel="stylesheet" href="styles/assets.css">
     <link rel="stylesheet" href="styles/standard.css">
     <link rel="stylesheet" href="styles/cart.css">
+    <link rel="stylesheet" href="styles/dialog.css">
     <script src="./scripts/template.js"></script>
     <script src="./scripts/db.js"></script>
     <script src="./script.js"></script>
 
 </head>
-<!-- new template structe -> all indexes just indexDish -> no subtitles like indexSalat/  -->
+<!-- logic behind everything  -->
 
 <body onload="renderAllDishes()">
     <header>
         <img src="./assets/Logo/Logo.png" alt="Brand_Logo">
-        <button onclick="toogleCart()">
+        <button class="menu_btn" onclick="toogleCart()">
             <img src="./assets/icons/nav_icon/menu.svg" alt="show/hide cart">
         </button>
     </header>
-    <div class="content_wrap">
+    <div id="content_wrap" class="content_wrap">
         <aside id="cart" class="cart_wrap">
             <div class="cart">
                 <h2 class="cart_header">Warenkorb</h2>
-                <section class="cart_section">
-                    <h3>Pollo Pollo</h3>
-                    <div class="cart_order">
-                        <button class="cart_btn">
-                            <img class="cart_icon" src="./assets/icons/order_icons/minus.svg" alt="add dish to cart">
-                        </button>
-                        <p class="text_color">3x</p>
-                        <button class="cart_btn">
-                            <img class="cart_icon" src="./assets/icons/order_icons/plus.svg" alt="add dish to cart">
-                        </button>
-                        <p class="text_color">25,50€</p>
-                        <button class="cart_btn">
-                            <img class="cart_icon" src="./assets/icons/order_icons/bin.svg" alt="add dish to cart">
-                        </button>
-                    </div>
-                </section>
+                <div id="cart_content" class="cart">
+                </div>
                 <section class="price_summary">
                     <p class="text_color">Zwischensumme <span class="text_color">€€€</span></p>
                     <p class="text_color">Lieferkosten <span class="text_color">€€€</span></p>
@@ -83,6 +70,27 @@
                 <div id="side_dish"></div>
             </section>
         </main>
+    </div>
+    <dialog id="dialog" class="dialog">
+        <div class="resp_cart">
+            <button onclick="dialog_close()" class="resp_cart_close_btn">
+                <h2 class="resp_cart_open_heading">Warenkorb</h2>
+                <img class="resp_cart_open_icon" src="./assets/icons/nav_icon/arrow down.svg" alt="close cart">
+            </button>
+        </div>
+        <div id="resp_cart_content">
+        </div>
+        <section class="price_summary">
+            <p class="text_color">Zwischensumme <span class="text_color">€€€</span></p>
+            <p class="text_color">Lieferkosten <span class="text_color">€€€</span></p>
+            <p>Gesamt <span>€€€</span></p>
+        </section>
+    </dialog>
+    <div id="get_cart_bottom" class="get_resp_cart">
+        <button onclick="dialog_open() ; renderRespCart()" class="resp_cart_open_btn">
+            <img class="resp_cart_close_icon" src="./assets/icons/nav_icon/arrow_up.svg" alt="open cart">
+            <h2 class="resp_cart_heading">Warenkorb</h2>
+        </button>
     </div>
     <footer></footer>
 </body>
