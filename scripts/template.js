@@ -75,19 +75,19 @@ function getSideDishTemplate(indexDishes) {
 }
 
 function getDishtoCart(indexDishes) {
-    return `<section class="cart_section">
+    return `<section id="${indexDishes}" class="cart_section">
                     <h3>${dishes[indexDishes].name}</h3>
                     <div class="cart_order">
-                        <button class="cart_btn">
-                            <img class="cart_icon" src="./assets/icons/order_icons/minus.svg" alt="add dish to cart">
+                        <button onclick="decreaseAmount(${indexDishes}) ; calculateSubTotal(${indexDishes})" class="cart_btn">
+                            <img class="cart_icon" src="./assets/icons/order_icons/minus.svg" alt="decrase amount of dish from cart">
                         </button>
-                        <p class="text_color">1x</p>
-                        <button class="cart_btn">
-                            <img class="cart_icon" src="./assets/icons/order_icons/plus.svg" alt="add dish to cart">
+                        <p id="${indexDishes + "amount"}" class="text_color">1x</p>
+                        <button onclick="increaseAmount(${indexDishes}) ; calculateSubTotal(${indexDishes})" class="cart_btn">
+                            <img class="cart_icon" src="./assets/icons/order_icons/plus.svg" alt="increase amount of dish from cart">
                         </button>
-                        <p class="text_color">${dishes[indexDishes].price + "€"}</p>
-                        <button class="cart_btn">
-                            <img class="cart_icon" src="./assets/icons/order_icons/bin.svg" alt="add dish to cart">
+                        <p id="${indexDishes + "price"}" class="text_color">${dishes[indexDishes].price + "€"}</p>
+                        <button onclick="deleteItem(${indexDishes})" class="cart_btn">
+                            <img class="cart_icon" src="./assets/icons/order_icons/bin.svg" alt="delete dish from cart">
                         </button>
                     </div>
                 </section>`

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bestellapp</title>
     <link rel="icon" type="image/x-icon" href="./assets/icons/Favicon/favicon-32x32.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/assets.css">
@@ -16,7 +16,9 @@
     <script src="./script.js"></script>
 
 </head>
-<!-- logic behind everything  -->
+<!-- push name/price/amount to local storage JSON // retrieve this data// bin button delte this data // add amount value// 
+ build calculator for sums // write if statement to check if item is already in cart// add if statement to delete delivery fees 
+ certain amount// put delete function also on minus button + decreasing function -->
 
 <body onload="renderAllDishes()">
     <header>
@@ -25,16 +27,16 @@
             <img src="./assets/icons/nav_icon/menu.svg" alt="show/hide cart">
         </button>
     </header>
-    <div id="content_wrap" class="content_wrap">
+    <div  id="content_wrap" class="content_wrap">
         <aside id="cart" class="cart_wrap">
-            <div class="cart">
+            <div  class="cart">
                 <h2 class="cart_header">Warenkorb</h2>
                 <div id="cart_content" class="cart">
                 </div>
                 <section class="price_summary">
-                    <p class="text_color">Zwischensumme <span class="text_color">€€€</span></p>
-                    <p class="text_color">Lieferkosten <span class="text_color">€€€</span></p>
-                    <p>Gesamt <span>€€€</span></p>
+                    <p class="text_color">Zwischensumme <span id="subtotal" class="text_color"></span></p>
+                    <p id="delivery_costs" class="text_color">Lieferkosten <span id="delivery_costs" class="text_color">5€</span></p>
+                    <p>Gesamt <span id="total_sum"></span></p>
                 </section>
             </div>
         </aside>
