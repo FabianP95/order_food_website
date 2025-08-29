@@ -82,6 +82,10 @@ h2 {
 
 }
 
+.small {
+    font-size: 12px;
+}
+
 .dish_overview {
     display: flex;
     justify-content: space-between;

@@ -3,8 +3,8 @@
 }
 
 .cart_wrap {
-    width: 300px;
-    flex-grow: 1;
+    min-width: 300px;
+    
     border-left: 1px solid rgb(102, 99, 99, .6);
     border-right: 8px solid #ff8000;
 }
@@ -12,8 +12,8 @@
 .cart {
     position: sticky;
     top: 0px;
-    max-height: 100vh;
     width: 100%;
+    overflow-y: scroll;
 }
 
 .cart_header {
