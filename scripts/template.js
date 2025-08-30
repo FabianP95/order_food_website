@@ -19,7 +19,12 @@ function renderSideDish() {
     }
 }
 
-
+function renderPayment(indexDishes) {
+    let contentRef = document.getElementById('show_payment');
+    let contentRespRef = document.getElementById('show_payment_resp');
+    contentRef.innerHTML = getPaymentOverview(indexDishes);
+    contentRespRef.innerHTML = getPaymentOverview(indexDishes);
+}
 
 function getSalatsTemplate(indexDishes) {
     return ` <section class="dish_overview">
@@ -55,7 +60,6 @@ function getPizzaTemplate(indexDishes) {
             </section>`
 }
 
-
 function getSideDishTemplate(indexDishes) {
     return `<section class="dish_overview">
                 <div>
@@ -70,19 +74,17 @@ function getSideDishTemplate(indexDishes) {
                     </button>
                 </div>
             </section>`
-            
-            
 }
 
 function getDishtoCart(indexDishes) {
     return `<section id="${indexDishes}" class="cart_section">
                     <h3>${dishes[indexDishes].name}</h3>
                     <div class="cart_order">
-                        <button onclick="decreaseAmount(${indexDishes}) ; calculateSubTotal(${indexDishes})" class="cart_btn">
+                        <button onclick="decreaseAmount(${indexDishes})" class="cart_btn">
                             <img class="cart_icon" src="./assets/icons/order_icons/minus.svg" alt="decrase amount of dish from cart">
                         </button>
                         <p id="${indexDishes + "amount"}" class="text_color">1x</p>
-                        <button onclick="increaseAmount(${indexDishes}) ; calculateSubTotal(${indexDishes})" class="cart_btn">
+                        <button onclick="increaseAmount(${indexDishes})" class="cart_btn">
                             <img class="cart_icon" src="./assets/icons/order_icons/plus.svg" alt="increase amount of dish from cart">
                         </button>
                         <p id="${indexDishes + "price"}" class="text_color">${dishes[indexDishes].price + "€"}</p>
@@ -91,4 +93,13 @@ function getDishtoCart(indexDishes) {
                         </button>
                     </div>
                 </section>`
+}
+
+function getPaymentOverview(indexDishes) {
+    return `<p class="text_color">Zwischensumme: <span id="subtotal" class="text_color"></span></p>
+                    <p class="text_color">Lieferkosten*: <span id="delivery_costs" class="text_color">5€</span> <br>
+                        <span class="small">*bei über 30€ Bestellwert ent-<br>fallen die Lieferkosten</span>
+                    </p>
+                    <p>Gesamt: <span id="total_sum"></span></p>
+                    <button class="order_Btn" onclick="deleteCartContent(${indexDishes}) ; message()">Bestellen</button>`
 }

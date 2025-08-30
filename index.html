@@ -11,15 +11,14 @@
     <link rel="stylesheet" href="styles/standard.css">
     <link rel="stylesheet" href="styles/cart.css">
     <link rel="stylesheet" href="styles/dialog.css">
+    <link rel="stylesheet" href="styles/message.css">
     <script src="./scripts/template.js"></script>
     <script src="./scripts/db.js"></script>
     <script src="./scripts/cart.js"></script>
     <script src="./script.js"></script>
 
 </head>
-<!-- push name/price/amount to local storage JSON // retrieve this data// bin button delte this data // add amount value// 
- build calculator for sums // write if statement to check if item is already in cart// resp_cart needs same functionality//
- onload dialog and cart content -> onclick further cart content + sync function  -->
+<!-- push name/price/amount to local storage JSON // retrieve this data//   -->
 
 <body onload="renderAllDishes()">
     <header>
@@ -34,15 +33,13 @@
                 <h2 class="cart_header">Warenkorb</h2>
                 <div id="cart_content">
                 </div>
-                <section class="price_summary">
-                    <p class="text_color">Zwischensumme: <span id="subtotal" class="text_color"></span></p>
-                    <p class="text_color">Lieferkosten*: <span id="delivery_costs" class="text_color">5€</span> <br>
-                        <span class="small">*bei über 30€ Bestellwert ent-<br>fallen die Lieferkosten</span>
-                    </p>
-                    <p>Gesamt: <span id="total_sum"></span></p>
+                <section id="show_payment" class="price_summary">
                 </section>
             </div>
         </aside>
+        <dialog id="message" class="messageWindow">
+            <p class="messageContent">Deine Bestellung war erfolgreich. <br> <br>Guten Appetit!</p>
+        </dialog>
         <main id="main">
             <section class="section">
                 <div id="restaurant_img_container">
@@ -85,10 +82,7 @@
         </div>
         <div id="resp_cart_content">
         </div>
-        <section class="price_summary">
-            <p class="text_color">Zwischensumme: <span id="subtotal" class="text_color"></span></p>
-            <p class="text_color">Lieferkosten: <span id="delivery_costs" class="text_color">5€</span></p>
-            <p>Gesamt: <span id="total_sum"></span></p>
+        <section id="show_payment_resp" class="price_summary">
         </section>
     </dialog>
     <div id="get_cart_bottom" class="get_resp_cart">

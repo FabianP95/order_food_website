@@ -1,9 +1,8 @@
-
+let prices = [];
 
 function addToCart(indexDishes) {
     let contentRef = document.getElementById('cart_content');
     let orderItem = document.getElementById(indexDishes);
-    let prices = [];
     if (document.body.contains(orderItem) === true) {
         increaseAmount(indexDishes)
         return
@@ -12,28 +11,28 @@ function addToCart(indexDishes) {
         contentRef.innerHTML += getDishtoCart(indexDishes);
         let price = parseFloat(document.getElementById((indexDishes) + "price").innerText);
         prices.push(price);
-        calculateSubTotal(prices);
+        calculateSubTotal();
     }
 }
 
 function decreaseAmount(indexDishes) {
-    var amount = parseInt(document.getElementById((indexDishes) + "amount").innerHTML, 10);
+    let amount = parseInt(document.getElementById((indexDishes) + "amount").innerHTML, 10);
     let price = parseFloat(document.getElementById((indexDishes) + "price").innerText);
-    let prices = [];
     amount--;
     document.getElementById((indexDishes) + "amount").innerHTML = amount + "x";
     if (amount <= 0) {
-        prices.pop(price);
+        prices.splice(prices.indexOf(price), 1)
         deleteItem(indexDishes)
+        calculateSubTotal();
+    } else {
+        prices.splice(prices.indexOf(price), 1)
+        calculateSubTotal();
     }
-    prices.pop(price);
-    calculateSubTotal(prices);
 }
 
 function increaseAmount(indexDishes) {
     let amount = parseInt(document.getElementById((indexDishes) + "amount").innerHTML, 10);
     let price = parseFloat(document.getElementById((indexDishes) + "price").innerText);
-    let prices = [];
     amount++;
     document.getElementById((indexDishes) + "amount").innerHTML = amount + "x";
     if (amount >= 21) {
@@ -41,45 +40,54 @@ function increaseAmount(indexDishes) {
         return
     } else {
         prices.push(price);
-        calculateSubTotal(prices);
+        calculateSubTotal();
     }
+    renderRespCart();
 }
 
 function deleteItem(indexDishes) {
-    let price = parseFloat(document.getElementById((indexDishes) + "price").innerText);
+    document.getElementById('delivery_costs').innerText = "5€";
     let contentRef = document.getElementById(indexDishes);
-    
-    for (let index = 0; index < prices.length; index++) {
-        
-        prices.splice(indexDishes, 1);
+    let price = parseFloat(document.getElementById((indexDishes) + "price").innerText);
+    let pricesRemove = prices.reduce((ind, el, i) => {
+        if (el === price) ind.push(i)
+        return ind;
+    }, []);
+    for (var i = pricesRemove.length - 1; i >= 0; i--) {
+        prices.splice(pricesRemove[i], 1)
     }
-    
-    calculateSubTotal()
+    calculateSubTotal();
     contentRef.remove();
 }
 
-
-function calculateSubTotal(prices) {
+function calculateSubTotal() {
     let subtotal = document.getElementById('subtotal');
     result = prices.reduce((total, currentPrice) => {
         return total + currentPrice
     }, 0)
     subtotal.innerText = result.toFixed(2) + "€";
-    calculateTotal()
+    calculateTotal();
 }
 
 function calculateTotal() {
     let total = document.getElementById('total_sum');
-    let fee = parseInt(document.getElementById('delivery_costs').innerText);
     let subtotal = parseFloat(document.getElementById('subtotal').innerText);
-    if (subtotal === 0 || subtotal >= 30 ) {
+    let fee = parseInt(document.getElementById('delivery_costs').innerText);
+    if (subtotal === 0) {
+        document.getElementById('delivery_costs').innerText = "5€";
+        fee = 0;
+    }
+    if (subtotal >= 30) {
         document.getElementById('delivery_costs').innerText = "0€";
         result = subtotal;
-       
-    }  else  {
+    } else {
         document.getElementById('delivery_costs').innerText = "5€";
         result = fee + subtotal;
     }
     total.innerText = result.toFixed(2) + "€";
+    renderRespCart();
 }
+
+
+
 

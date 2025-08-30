@@ -2,7 +2,7 @@ function renderAllDishes() {
     renderSalat();
     renderPizza();
     renderSideDish();
-
+    renderPayment();
 }
 
 function toogleCart() {
@@ -12,26 +12,39 @@ function toogleCart() {
 
 function dialog_close() {
     let element = document.getElementById("dialog");
-    element.open = false;
-    document.body.style.overflow = "scroll";
+    element.close();
 }
 
 function dialog_open() {
-    document.body.style.overflow = "hidden";
     let element = document.getElementById("dialog");
-    element.open = true;
-    element.style.overflow = "scroll";
+    element.show();
 }
 
 function renderRespCart() {
     let contentRef = document.getElementById('cart_content');
     let contentDestination = document.getElementById('resp_cart_content');
+    let priceRef = document.getElementById('show_payment');
+    let priceDestinationRef = document.getElementById('show_payment_resp');
     contentDestination.innerHTML = contentRef.innerHTML;
+    priceDestinationRef.innerHTML = priceRef.innerHTML;
 }
 
-function renderCart() {
-    let contentRef = document.getElementById('resp_cart_content');
-    let contentDestination = document.getElementById('cart_content');
-    contentDestination.innerHTML = contentRef.innerHTML;
+function message() {
+    let message = document.getElementById("message");
+    message.show();
 }
 
+function deleteCartContent() {
+    renderPayment();
+    let contentRef = document.getElementById('cart_content');
+    contentRef.innerHTML = "";
+    prices = [];
+    renderRespCart();
+}
+
+window.onclick = function (event) {
+    let element = document.getElementById("message");
+    if (event.target == element) {
+        element.close();
+    }
+}

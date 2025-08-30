@@ -48,9 +48,7 @@
 }
 
 @media (min-width:801px) {
-
     .dialog {
         display: none;
     }
-
 }
