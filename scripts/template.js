@@ -1,3 +1,4 @@
+
 function renderSalat() {
     let contentRef = document.getElementById('salads');
     for (let indexDishes = 0; indexDishes < dishes.length - 7; indexDishes++) {
@@ -19,11 +20,11 @@ function renderSideDish() {
     }
 }
 
-function renderPayment(indexDishes) {
+function renderPayment() {
     let contentRef = document.getElementById('show_payment');
     let contentRespRef = document.getElementById('show_payment_resp');
-    contentRef.innerHTML = getPaymentOverview(indexDishes);
-    contentRespRef.innerHTML = getPaymentOverview(indexDishes);
+    contentRef.innerHTML = getPaymentOverview();
+    contentRespRef.innerHTML = getPaymentOverview();
 }
 
 function getSalatsTemplate(indexDishes) {
@@ -101,5 +102,5 @@ function getPaymentOverview(indexDishes) {
                         <span class="small">*bei über 30€ Bestellwert ent-<br>fallen die Lieferkosten</span>
                     </p>
                     <p>Gesamt: <span id="total_sum"></span></p>
-                    <button class="order_Btn" onclick="deleteCartContent(${indexDishes}) ; message()">Bestellen</button>`
+                    <button class="order_Btn" onclick="deleteCartContent(${indexDishes})">Bestellen</button>`
 }

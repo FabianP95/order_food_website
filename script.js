@@ -29,17 +29,20 @@ function renderRespCart() {
     priceDestinationRef.innerHTML = priceRef.innerHTML;
 }
 
+function deleteCartContent() {
+    let contentRef = document.getElementById('cart_content');
+    if (contentRef.innerHTML !== "") {
+        message()
+    }
+    renderPayment();
+    contentRef.innerHTML = "";
+    prices = [];
+    renderRespCart(); 
+}
+
 function message() {
     let message = document.getElementById("message");
     message.show();
-}
-
-function deleteCartContent() {
-    renderPayment();
-    let contentRef = document.getElementById('cart_content');
-    contentRef.innerHTML = "";
-    prices = [];
-    renderRespCart();
 }
 
 window.onclick = function (event) {

@@ -1,9 +1,12 @@
 let prices = [];
 
+
+
+
 function addToCart(indexDishes) {
     let contentRef = document.getElementById('cart_content');
-    let orderItem = document.getElementById(indexDishes);
-    if (document.body.contains(orderItem) === true) {
+    let orderItem = document.getElementById((indexDishes));
+    if (contentRef.contains(orderItem) === true) {
         increaseAmount(indexDishes)
         return
     }
@@ -13,6 +16,8 @@ function addToCart(indexDishes) {
         prices.push(price);
         calculateSubTotal();
     }
+    
+    
 }
 
 function decreaseAmount(indexDishes) {
@@ -58,6 +63,7 @@ function deleteItem(indexDishes) {
     }
     calculateSubTotal();
     contentRef.remove();
+    renderRespCart();
 }
 
 function calculateSubTotal() {
