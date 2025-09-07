@@ -31,6 +31,7 @@ function renderRespCart() {
 
 function deleteCartContent() {
     let contentRef = document.getElementById('cart_content');
+    let priceDisplay = document.getElementById("show_price");
     if (contentRef.innerHTML !== "") {
         message()
     }
@@ -38,6 +39,7 @@ function deleteCartContent() {
     contentRef.innerHTML = "";
     prices = [];
     renderRespCart(); 
+    priceDisplay.innerHTML = "";
 }
 
 function message() {

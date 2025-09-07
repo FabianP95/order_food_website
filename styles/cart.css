@@ -16,11 +16,30 @@
     overflow-y: scroll;
 }
 
-.cart_header {
-    font-family: 'Roboto';
-    text-align: center;
+.cart_header_element {
     padding-top: 10px;
     border-bottom: 1px solid rgb(102, 99, 99, .6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.show_price {
+    color: #ff8000;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.price_section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.cart_header {
+    font-family: 'Roboto';
+    margin-bottom: 16px;
 }
 
 .cart_btn {
@@ -95,6 +114,10 @@
 
 .resp_cart_open_btn:hover {
     cursor: pointer;
+}
+
+.cart_icon {
+
 }
 
 @media (min-width:801px) {

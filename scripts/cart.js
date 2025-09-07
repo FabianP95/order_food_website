@@ -91,9 +91,14 @@ function calculateTotal() {
         result = fee + subtotal;
     }
     total.innerText = result.toFixed(2) + "€";
+    renderPrice();
     renderRespCart();
 }
 
-
+function renderPrice() {
+    let priceDisplay = document.getElementById("show_price");
+    let priceInfo = document.getElementById("total_sum");
+    priceDisplay.innerHTML = priceInfo.innerHTML;
+}
 
 
