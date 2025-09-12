@@ -1,9 +1,14 @@
 *{
     box-sizing: border-box;
     scroll-behavior: smooth;
+    
 }
 a{
     text-decoration: none;
+}
+
+.height {
+   min-height: calc(100vh - 120px);
 }
 
 

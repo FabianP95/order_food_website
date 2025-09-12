@@ -1,38 +1,9 @@
-
-function renderSalat() {
-    let contentRef = document.getElementById('salads');
-    for (let indexDishes = 0; indexDishes < dishes.length - 7; indexDishes++) {
-        contentRef.innerHTML += getSalatsTemplate(indexDishes);
-    }
-}
-
-function renderPizza() {
-    let contentRef = document.getElementById('pizza');
-    for (let indexDishes = 3; indexDishes < dishes.length - 3; indexDishes++) {
-        contentRef.innerHTML += getPizzaTemplate(indexDishes);
-    }
-}
-
-function renderSideDish() {
-    let contentRef = document.getElementById('side_dish');
-    for (let indexDishes = 7; indexDishes < dishes.length; indexDishes++) {
-        contentRef.innerHTML += getSideDishTemplate(indexDishes);
-    }
-}
-
-function renderPayment() {
-    let contentRef = document.getElementById('show_payment');
-    let contentRespRef = document.getElementById('show_payment_resp');
-    contentRef.innerHTML = getPaymentOverview();
-    contentRespRef.innerHTML = getPaymentOverview();
-}
-
 function getSalatsTemplate(indexDishes) {
     return ` <section class="dish_overview">
                 <div>
                     <h3 class="dish_name">${dishes[indexDishes].name}</h3>
                     <p class="dish_info text_color">${dishes[indexDishes].topping}<br><br><span
-                            class="color">${dishes[indexDishes].price + "€"}</span>
+                            class="color">${dishes[indexDishes].price.toFixed(2).replace(".", ",") + "€"}</span>
                     </p>
                 </div>
                 <div class="dish_overview_right_side">
@@ -42,14 +13,14 @@ function getSalatsTemplate(indexDishes) {
                     </button>
                 </div>
             </section>`
-}
+};
 
 function getPizzaTemplate(indexDishes) {
     return `<section class="dish_overview">
                 <div>
                     <h3 class="dish_name">${dishes[indexDishes].name}</h3>
                     <p class="dish_info text_color">${dishes[indexDishes].topping}<br><br><span
-                            class="color">${dishes[indexDishes].price + "€"}</span>
+                            class="color">${dishes[indexDishes].price.toFixed(2).replace(".", ",") + "€"}</span>
                     </p>
                 </div>
                 <div class="dish_overview_right_side">
@@ -59,13 +30,13 @@ function getPizzaTemplate(indexDishes) {
                     </button>
                 </div>
             </section>`
-}
+};
 
 function getSideDishTemplate(indexDishes) {
     return `<section class="dish_overview">
                 <div>
                     <h3 class="dish_name">${dishes[indexDishes].name}</h3>
-                    <p class="dish_info color">${dishes[indexDishes].price + "€"}
+                    <p class="dish_info color">${dishes[indexDishes].price.toFixed(2).replace(".", ",") + "€"}
                     </p>
                 </div>
                 <div class="dish_overview_right_side">
@@ -75,11 +46,11 @@ function getSideDishTemplate(indexDishes) {
                     </button>
                 </div>
             </section>`
-}
+};
 
 function getDishtoCart(indexDishes) {
     return `<section id="${indexDishes}" class="cart_section">
-                    <h3>${dishes[indexDishes].name}</h3>
+                <h3>${dishes[indexDishes].name}</h3>
                     <div class="cart_order">
                         <button onclick="decreaseAmount(${indexDishes})" class="cart_btn">
                             <img class="cart_icon" src="./assets/icons/order_icons/minus.svg" alt="decrase amount of dish from cart">
@@ -88,19 +59,20 @@ function getDishtoCart(indexDishes) {
                         <button onclick="increaseAmount(${indexDishes})" class="cart_btn">
                             <img class="cart_icon" src="./assets/icons/order_icons/plus.svg" alt="increase amount of dish from cart">
                         </button>
-                        <p id="${indexDishes + "price"}" class="text_color">${dishes[indexDishes].price + "€"}</p>
+                        <p id="${indexDishes + "price"}" class="text_color">${dishes[indexDishes].price.toFixed(2).replace(".", ",") + "€"}</p>
                         <button onclick="deleteItem(${indexDishes})" class="cart_btn">
                             <img class="cart_icon" src="./assets/icons/order_icons/bin.svg" alt="delete dish from cart">
                         </button>
                     </div>
-                </section>`
-}
+            </section>`
+};
 
 function getPaymentOverview(indexDishes) {
     return `<p class="text_color">Zwischensumme: <span id="subtotal" class="text_color"></span></p>
-                    <p class="text_color">Lieferkosten*: <span id="delivery_costs" class="text_color">5€</span> <br>
+            <p class="text_color">Lieferkosten*: <span id="delivery_costs" class="text_color">5€</span> <br>
                         <span class="small">*bei über 30€ Bestellwert ent-<br>fallen die Lieferkosten</span>
-                    </p>
-                    <p>Gesamt: <span id="total_sum"></span></p>
-                    <button class="order_Btn" onclick="deleteCartContent(${indexDishes})">Bestellen</button>`
-}
+            </p>
+            <p class="size">Gesamt: <span id="total_sum"></span></p>
+            <button class="order_Btn" onclick="emptyCart(${indexDishes})">Bestellen</button>`
+};
+

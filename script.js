@@ -1,55 +1,58 @@
-function renderAllDishes() {
-    renderSalat();
-    renderPizza();
-    renderSideDish();
-    renderPayment();
-}
+const priceDisplay = document.getElementById("show_price");
+const priceDisplayResp = document.getElementById("show_price_resp_cart");
+const priceDisplayDialog = document.getElementById("show_price_dialog_cart");
+const respCartContent = document.getElementById('resp_cart_content');
+const priceRef = document.getElementById('show_payment');
+const priceDestinationRef = document.getElementById('show_payment_resp');
+const dialog = document.getElementById("dialog");
+const shopMessage = document.getElementById("message");
+
+function message() {
+    shopMessage.show();
+};
+
+window.onclick = function (event) {
+    if (event.target == shopMessage) {
+        shopMessage.close();
+    };
+};
 
 function toogleCart() {
     document.getElementById("cart").classList.toggle('d_none');
     document.getElementById("main").style.width = "100%";
-}
+};
 
-function dialog_close() {
-    let element = document.getElementById("dialog");
-    element.close();
-}
+function dialog_close() { 
+    dialog.close();
+};
 
 function dialog_open() {
-    let element = document.getElementById("dialog");
-    element.show();
-}
+    dialog.show();
+};
+
+function toogleCart() {
+    document.getElementById("cart").classList.toggle('d_none');
+    document.getElementById("main").style.width = "100%";
+};
 
 function renderRespCart() {
-    let contentRef = document.getElementById('cart_content');
-    let contentDestination = document.getElementById('resp_cart_content');
-    let priceRef = document.getElementById('show_payment');
-    let priceDestinationRef = document.getElementById('show_payment_resp');
-    contentDestination.innerHTML = contentRef.innerHTML;
+    respCartContent.innerHTML = cartContent.innerHTML;
     priceDestinationRef.innerHTML = priceRef.innerHTML;
-}
+};
 
-function deleteCartContent() {
-    let contentRef = document.getElementById('cart_content');
-    let priceDisplay = document.getElementById("show_price");
-    if (contentRef.innerHTML !== "") {
-        message()
+function emptyCart() {
+    if (cartContent.innerHTML !== "") {
+        message();
     }
     renderPayment();
-    contentRef.innerHTML = "";
+    cartContent.innerHTML = "";
     prices = [];
-    renderRespCart(); 
+    renderRespCart();
+    emptyPriceDisplays();
+};
+
+function emptyPriceDisplays() {
     priceDisplay.innerHTML = "";
-}
-
-function message() {
-    let message = document.getElementById("message");
-    message.show();
-}
-
-window.onclick = function (event) {
-    let element = document.getElementById("message");
-    if (event.target == element) {
-        element.close();
-    }
-}
+    priceDisplayResp.innerHTML = "";
+    priceDisplayDialog.innerHTML = "";
+};

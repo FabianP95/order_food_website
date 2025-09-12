@@ -9,6 +9,11 @@ body {
 
 .text_color {
     color: #7a7676;
+    font-size: 18px;
+}
+
+.size {
+    font-size: 18px;
 }
 
 header {
@@ -19,8 +24,6 @@ header {
     justify-content: space-between;
     align-content: center;
 }
-
-
 
 .space {
     padding-left: min(10px, 2%);
@@ -79,11 +82,10 @@ h2 {
 .dishes {
     padding-left: min(10px, 2%);
     padding-right: min(10px, 2%);
-
 }
 
 .small {
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .dish_overview {

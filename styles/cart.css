@@ -4,7 +4,6 @@
 
 .cart_wrap {
     min-width: 300px;
-    
     border-left: 1px solid rgb(102, 99, 99, .6);
     border-right: 8px solid #ff8000;
 }
@@ -13,7 +12,9 @@
     position: sticky;
     top: 0px;
     width: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
+    
+    max-height: 100vh;
 }
 
 .cart_header_element {
@@ -84,23 +85,25 @@
 
 .get_resp_cart {
     position: sticky;
-    bottom: 0;
-    background-color: rgb(0, 123, 255, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 122px;
+    flex-direction: column;
+    bottom: 0;
+    background-color: rgb(0, 123, 255, 0.5);
+    height: 135px;
 }
 
 .resp_cart_heading {
     color: rgb(255, 255, 255);
     font-family: "Roboto";
     opacity: 1;
+    margin-bottom: 0px;
 }
 
 .resp_cart_open_icon {
-    height: 48px;
-    width: 76px;
+    height: 42px;
+    width: 70px;
 }
 
 .resp_cart_open_btn {
@@ -114,10 +117,6 @@
 
 .resp_cart_open_btn:hover {
     cursor: pointer;
-}
-
-.cart_icon {
-
 }
 
 @media (min-width:801px) {
