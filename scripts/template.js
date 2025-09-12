@@ -73,6 +73,6 @@ function getPaymentOverview(indexDishes) {
                         <span class="small">*bei über 30€ Bestellwert ent-<br>fallen die Lieferkosten</span>
             </p>
             <p class="size">Gesamt: <span id="total_sum"></span></p>
-            <button class="order_Btn" onclick="emptyCart(${indexDishes})">Bestellen</button>`
+            <button id="order" class="order_Btn" onclick="emptyCart(${indexDishes})">Bestellen</button>`
 };
 

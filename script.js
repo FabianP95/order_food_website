@@ -22,7 +22,7 @@ function toogleCart() {
     document.getElementById("main").style.width = "100%";
 };
 
-function dialog_close() { 
+function dialog_close() {
     dialog.close();
 };
 
@@ -56,3 +56,18 @@ function emptyPriceDisplays() {
     priceDisplayResp.innerHTML = "";
     priceDisplayDialog.innerHTML = "";
 };
+
+function toggleEffect() {
+    let element = document.getElementById("order");
+    if (cartContent.hasChildNodes() === false) {
+        element.classList.remove('order_Btn_hover');
+        element.classList.remove('order_Btn_hover_effect');
+        console.log(1);
+    }
+    if (cartContent.hasChildNodes() === true) {
+        element.classList.add('order_Btn_hover');
+        element.classList.add('order_Btn_hover_effect');
+        console.log(2);
+    };
+};
+

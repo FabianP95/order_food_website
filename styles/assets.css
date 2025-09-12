@@ -35,7 +35,7 @@
     z-index: 0;
 }
 
-.order_Btn::after{
+.order_Btn_hover_effect::after{
     content: '';
     background: #ff8000;
     height: 100%;
@@ -52,11 +52,14 @@
     width: 100%;
 }
 
-.order_Btn:hover {
+.order_Btn_hover:hover {
     cursor: pointer;
     color: black;
 }
 
+.order_Btn.none::after {
+    display: none;
+}
 
 header>img {
     width: clamp(162px, 14%,  400px);

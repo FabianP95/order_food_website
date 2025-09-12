@@ -14,6 +14,7 @@ function addToCart(indexDishes) {
         prices.push(price);
         calculateSubTotal();
     };
+    toggleEffect();
     renderRespCart();
 };
 
