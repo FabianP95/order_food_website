@@ -62,12 +62,10 @@ function toggleEffect() {
     if (cartContent.hasChildNodes() === false) {
         element.classList.remove('order_Btn_hover');
         element.classList.remove('order_Btn_hover_effect');
-        console.log(1);
     }
     if (cartContent.hasChildNodes() === true) {
         element.classList.add('order_Btn_hover');
         element.classList.add('order_Btn_hover_effect');
-        console.log(2);
     };
 };
 

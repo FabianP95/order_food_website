@@ -24,36 +24,58 @@ function decreaseAmount(indexDishes) {
     amount--;
     singleCalculation(price, amount, indexDishes);
     document.getElementById((indexDishes) + "amount").innerHTML = amount + "x";
-    if (amount <= 0) {
-        prices.splice(prices.indexOf(price), 1);
-        deleteItem(indexDishes);
-        calculateSubTotal();
-    } else {
-        prices.splice(prices.indexOf(price), 1);
-        calculateSubTotal();
-    }
+    adjustCartDecrease(amount, indexDishes, price);
+    toggleEffect();
 }
+
+function adjustCartDecrease(amount, indexDishes, price) {
+    switch (true) {
+        case amount <= 0:
+            prices.splice(prices.indexOf(price), 1);
+            deleteItem(indexDishes);
+            calculateSubTotal();
+            break;
+        default:
+            prices.splice(prices.indexOf(price), 1);
+            calculateSubTotal();
+            break;
+    };
+};
 
 function increaseAmount(indexDishes) {
     let amount = parseInt(document.getElementById((indexDishes) + "amount").innerHTML, 10);
     let price = dishes[indexDishes].price;
     amount++;
-    singleCalculation(price, amount, indexDishes);
     document.getElementById((indexDishes) + "amount").innerHTML = amount + "x";
-    if (amount >= 21) {
-        document.getElementById((indexDishes) + "amount").innerHTML = 20 + "x";
-        return
-    } else {
-        prices.push(price);
-        calculateSubTotal();
-    }
+    stopCalculating(amount, indexDishes, price);
     renderRespCart();
+};
+
+function stopCalculating(amount, indexDishes, price) {
+    switch (true) {
+        case amount >= 21:
+            document.getElementById((indexDishes) + "amount").innerHTML = 20 + "x";
+            break;
+        default:
+            prices.push(price);
+            singleCalculation(price, amount, indexDishes);
+            calculateSubTotal();
+            break;
+    };
 };
 
 function deleteItem(indexDishes) {
     document.getElementById('delivery_costs').innerText = "5€";
     let contentRef = document.getElementById(indexDishes);
     let price = dishes[indexDishes].price;
+    filterPriceArray(price);
+    calculateSubTotal();
+    contentRef.remove();
+    toggleEffect();
+    renderRespCart();
+};
+
+function filterPriceArray(price) {
     let pricesRemove = prices.reduce((ind, el, i) => {
         if (el === price) ind.push(i);
         return ind;
@@ -61,11 +83,7 @@ function deleteItem(indexDishes) {
     for (var i = pricesRemove.length - 1; i >= 0; i--) {
         prices.splice(pricesRemove[i], 1)
     };
-    calculateSubTotal();
-    contentRef.remove();
-    renderRespCart();
-    console.log(prices);
-}; 
+};
 
 function calculateSubTotal() {
     let subtotal = document.getElementById('subtotal');
@@ -79,12 +97,18 @@ function calculateSubTotal() {
 function calculateTotal() {
     let totalSum = document.getElementById("total_sum");
     let subTotal = (document.getElementById('subtotal').innerText).replace(",", ".");
-    let subTotalResult = parseFloat (subTotal);
+    let subTotalResult = parseFloat(subTotal);
     let fee = parseInt(document.getElementById('delivery_costs').innerText);
+    calculatingTotal(subTotalResult, fee, subTotalResult);
+    totalSum.innerText = result.toFixed(2).replace(".", ",") + "€";
+    renderAllPayment();
+};
+
+function calculatingTotal(subTotalResult, fee, subTotalResult) {
     if (subTotalResult === 0) {
         document.getElementById('delivery_costs').innerText = "5€";
         fee = 0;
-    };
+    }
     if (subTotalResult >= 30) {
         document.getElementById('delivery_costs').innerText = "0€";
         result = subTotalResult;
@@ -92,12 +116,10 @@ function calculateTotal() {
         document.getElementById('delivery_costs').innerText = "5€";
         result = fee + subTotalResult;
     }
-    totalSum.innerText = result.toFixed(2).replace(".", ",") + "€";
-    renderAllPayment();   
 };
 
 
-function singleCalculation(price, amount, indexDishes){
+function singleCalculation(price, amount, indexDishes) {
     let singlePriceDisplay = document.getElementById((indexDishes) + "price");
     result = price * amount;
     singlePriceDisplay.innerText = result.toFixed(2).replace(".", ",") + "€";
